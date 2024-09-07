@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    background-color: rgb(53, 53, 53);
+    font-family: "Jost", sans-serif;
+}
+
+.logo h1{
+    cursor: pointer;
+}
+
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #5937d1;
+    color: white;
+    border-radius: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.search{
+    width: 25rem;
+    height: 3rem;
+    background-color: #6e45f1;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+input{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 1rem;
+    color: white;
+}
+
+input::placeholder{
+    color: rgb(203, 203, 203);
+}
