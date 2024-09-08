@@ -88,8 +88,28 @@ export default function Main(){
                 <div className="minimizer" onClick={()=>setIsOpen2(!isOpen2)}>
                     <span className="minimizer-ui">{isOpen2?"-":"+"}</span></div>
                 {isOpen2&& <div className="movieList">
-                    {/* stats */}
-                    
+                    {/* movies watched summary */}
+                <div className="summary">
+                <h2>Movies you watched</h2>
+                <div className="summaryStats">
+                  <p>
+                    <span>#️⃣</span>
+                    <span> {tempWatchedData.length} movies</span>
+                  </p>
+                  <p>
+                    <span>⭐️</span>
+                    <span> {avgImdbRating}</span>
+                  </p>
+                  <p>
+                    <span>🌟</span>
+                    <span> {avgUserRating}</span>
+                  </p>
+                  <p>
+                    <span>⏳</span>
+                    <span> {avgRuntime} min</span>
+                  </p>
+                </div>
+              </div>
                     {tempWatchedData?.map((movie)=>{ 
                         return <div className="eachMovie" key={movie.imdbID}>
                         <img src={movie.Poster} alt="movie-poster"/>

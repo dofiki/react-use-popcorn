@@ -60,16 +60,17 @@ input::placeholder{
     background-color: rgb(61, 61, 61);
     width: 20rem;
     height: 32rem;
-    padding: 1rem;
+    padding: 0rem;
     margin-top: 1rem;
     border-radius: 0.5rem;
+    position: relative;
 }
 
 .eachMovie{
     display: flex;
     gap: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 1rem;
+    padding-top: 1rem;
     color: white;
     border-bottom: 2px solid  rgb(71, 71, 71);;
 }
@@ -93,9 +94,14 @@ input::placeholder{
 .minimizer{
     display: flex;
     justify-content: end;
+    
+ 
 }
 
 .minimizer-ui{
+    position: absolute;
+    top:0.5rem;
+    right:0.5rem;
     color: white;
     background-color: rgb(28, 28, 28);
     height: 1.5rem;
@@ -107,3 +113,21 @@ input::placeholder{
     cursor: pointer;
 }
 
+.summary{
+    background-color: rgb(101, 101, 101);
+    color:white;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    
+}
+
+.summary h2{
+    font-size: 1.2rem;
+}
+
+.summaryStats{
+    display: flex;
+    padding: 0.2rem;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+}
