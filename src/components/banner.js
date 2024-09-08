@@ -6,14 +6,16 @@ export default function Banner(){
 
     return (
         <div className="banner">
-            <div className="logo"><h1>🍿 usePopcorn</h1></div>
+            <div className="logo"><h1 style={{fontSize:"1.8rem"}}>🍿 usePopcorn</h1></div>
             <input 
                 type="text" 
                 className="search" 
                 placeholder="Search movies..." 
                 onChange={(e)=>setSearchText(e.target.value)}
                 value={searchText}/>
-            <div className="results"><h3>Found 3 results</h3></div>
+            <div className="results">
+                <p style={{fontSize:"1rem"}} >Found 
+                    <span style={{fontWeight:"bold"}}> 3</span> results</p></div>
         </div>
     )
 }

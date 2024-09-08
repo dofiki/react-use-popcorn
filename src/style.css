@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
-    background-color: rgb(53, 53, 53);
+    background-color: rgb(33, 33, 33);
     font-family: "Jost", sans-serif;
+    padding: 1rem;
 }
 
 .logo h1{
@@ -15,9 +21,11 @@ body{
     align-items: center;
     background-color: #5937d1;
     color: white;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .search{
@@ -39,3 +47,63 @@ input{
 input::placeholder{
     color: rgb(203, 203, 203);
 }
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    gap: 2rem;
+}
+
+.leftBox{
+    background-color: rgb(61, 61, 61);
+    width: 20rem;
+    height: 32rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+
+.eachMovie{
+    display: flex;
+    gap: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: white;
+    border-bottom: 2px solid  rgb(71, 71, 71);;
+}
+
+.eachMovie img{
+    height: 80px;
+}
+
+.eachMovie div p{
+    font-size: 0.8rem;
+    display: flex;
+
+    gap: 0.4rem;
+}
+
+.watchMovieMeta{
+    display: flex;
+    gap: 1rem;
+}
+
+.minimizer{
+    display: flex;
+    justify-content: end;
+}
+
+.minimizer-ui{
+    color: white;
+    background-color: rgb(28, 28, 28);
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
