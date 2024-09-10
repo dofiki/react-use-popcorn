@@ -26,6 +26,7 @@ const starStyle = {
 export default function StarRating({maxStars=5}){ //setting default number of stars 
 
     const [rating, setRating] = useState(0)
+    const [tempRating, setTempRating] = useState(0)
 
     function handleRating(id){
         setRating(rating===id?0:id)
@@ -35,17 +36,26 @@ export default function StarRating({maxStars=5}){ //setting default number of st
         <div style={containerStyle}>
             <div style={starContainerStyle}>
                 {Array.from({length:maxStars}, (_,i)=>
-                <Star key={i} onRate={handleRating} id={i+1} rating={rating}/>)}
+                <Star key={i} onRate={handleRating} id={i+1} 
+                      rating={rating}
+                      tempRating={tempRating}
+                      onHoverIn={()=>setTempRating(i+1)}
+                      onHoverOut={()=>setTempRating(0)}/>)}
             </div>
-            <div style={textStyle}>{rating||''}</div>
+            <div style={textStyle}>{tempRating||rating||''}</div>
         </div>
     )
 }
 
-function Star({onRate,id,rating}){
+function Star({onRate,id,onHoverIn,onHoverOut,rating,tempRating}){
+    const logic = tempRating?tempRating:rating;
     return (
-        <span role="button" style={starStyle} onClick={()=>onRate(id)}>
-            {rating<id?<svg /* full star*/
+        <span role="button" style={starStyle} onClick={()=>onRate(id)} 
+        onMouseEnter={onHoverIn} onMouseLeave={onHoverOut}>
+
+            {logic<id?
+            /* full star*/
+            <svg 
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -55,8 +65,7 @@ function Star({onRate,id,rating}){
                     strokeLinejoin="round"
                     strokeWidth="{2}"
                     d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
-            
-            </svg>:
+            </svg> :
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
