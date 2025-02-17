@@ -64,7 +64,31 @@ input::placeholder{
     margin-top: 1rem;
     border-radius: 0.5rem;
     position: relative;
+    overflow-y: scroll;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #9a9a9a #3d3d3d;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #3d3d3d;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px none #ffffff;
+  }
+
 
 .eachMovie{
     display: flex;
@@ -73,6 +97,7 @@ input::placeholder{
     padding-top: 1rem;
     color: white;
     border-bottom: 2px solid  rgb(71, 71, 71);;
+    cursor: pointer;
 }
 
 .eachMovie img{
@@ -130,4 +155,12 @@ input::placeholder{
     padding: 0.2rem;
     gap: 0.8rem;
     font-size: 0.9rem;
+}
+
+.loader{
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+    color: white;
+    font-weight: bolder;
 }

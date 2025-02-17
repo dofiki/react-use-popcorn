@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const tempMovieData = [
     {
@@ -49,36 +49,18 @@ const tempWatchedData = [
 
 const average = (arr) =>arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-const KEY = "d6d0dd5c";
-
 export default function App(){
-    const [movies, setMovies ] = useState([]);
-    const [watched, setWatched ] = useState([]);
-    const [isLoading, setisLoading] = useState(false);
-    const [searchText, setSearchText] = useState("");
-
-    useEffect(function(){
-      async function fetchMovies(){
-        setisLoading(true);
-
-        const res = await fetch(`https://www.omdbapi.com/?apikey=${KEY}&s=${searchText}`);
-        const data = await res.json();
-        setMovies(data.Search);
-        
-        setisLoading(false);
-      }
-      fetchMovies();
-    },[searchText])
-
+    const [movies, setMovies ] = useState(tempMovieData);
+    const [watched, setWatched ] = useState(tempWatchedData);
     return(
         <div>
-            <Banner searchText={searchText} setSearchText={setSearchText}>
+            <Banner>
                 <NumResult  movies={movies}/>
             </Banner>
 
             <Main>
                 <Box>
-                    {isLoading ? <Loader /> : <MoviesList movies={movies}/>}
+                    <MoviesList movies={movies}/>
                 </Box>
                 <Box>
                     <WatchedSummary watched={watched}/>
@@ -89,12 +71,9 @@ export default function App(){
     )
 }
 
-function Loader(){
-  return <p className='loader'>Loading...</p>
-}
+function Banner({children}){
 
-function Banner({searchText, setSearchText, children}){
-
+    const [searchText, setSearchText] = useState("");
 
     return (
         <div className="banner">
@@ -120,11 +99,10 @@ function Search({onSearch, searchText}){
 }
 
 function NumResult({movies}){
-  const movieCount = movies ? movies.length : 0; // Default to 0 if movies is undefined
     return (
     <div className="results">
         <p style={{fontSize:"1rem"}} >Found 
-        <span style={{fontWeight:"bold"}}> {movieCount}</span> results</p>
+        <span style={{fontWeight:"bold"}}> {movies.length}</span> results</p>
     </div>)
 }
 
