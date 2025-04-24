@@ -11,7 +11,7 @@ const starContainerStyle = {
     alignItems:"center",
 }
 
-export default function StarRating({maxStars=5, color='black', size=30, message=[], defaultRating=0 }){ //setting default number of stars 
+export default function StarRating({maxStars=5, color='black', size=30, message=[], defaultRating=0, onSetRating}){ //setting default number of stars 
 
     const [rating, setRating] = useState(defaultRating)
     const [tempRating, setTempRating] = useState(0)
@@ -22,9 +22,11 @@ export default function StarRating({maxStars=5, color='black', size=30, message=
         fontSize:`${size}px`
     }
 
-    function handleRating(id){
-        setRating(rating===id?0:id)
-    }
+    function handleRating(id) {
+        const newRating = rating === id ? 0 : id;
+        setRating(newRating);
+        onSetRating?.(newRating); 
+      }
 
     return (
         <div style={containerStyle}>
